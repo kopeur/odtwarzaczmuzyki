@@ -1,0 +1,158 @@
+.main-window {
+    -fx-background-color: #121212;
+}
+
+.custom-tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #181818;
+}
+
+.custom-tab-pane .tab {
+    -fx-background-color: transparent;
+    -fx-padding: 10 20 10 20;
+}
+
+.custom-tab-pane .tab:selected {
+    -fx-background-color: #282828;
+    -fx-border-color: #1E90FF;
+    -fx-border-width: 0 0 3 0;
+}
+
+.custom-tab-pane .tab .tab-label {
+    -fx-text-fill: #b3b3b3;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.custom-tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #ffffff;
+}
+
+.tab-content {
+    -fx-background-color: #121212;
+}
+
+.song-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.song-list {
+    -fx-background-color: #121212;
+    -fx-control-inner-background: #121212;
+    -fx-background-insets: 0;
+    -fx-padding: 10;
+}
+
+.song-list .list-cell {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-padding: 10;
+    -fx-cell-size: 40px;
+    -fx-background-color: transparent;
+    -fx-border-color: #282828;
+    -fx-border-width: 0 0 1 0;
+}
+
+.song-list .list-cell:filled:hover {
+    -fx-background-color: #2a2a2a;
+    -fx-cursor: hand;
+}
+
+.song-list .list-cell:filled:selected {
+    -fx-background-color: #1E90FF;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+.lyrics-area {
+    -fx-control-inner-background: #121212;
+    -fx-background-color: #121212;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-border-color: transparent;
+}
+
+.lyrics-area .viewport {
+    -fx-background-color: transparent;
+}
+
+.lyrics-area .content {
+    -fx-background-color: transparent;
+}
+
+.player-controls-container {
+    -fx-background-color: #181818;
+    -fx-border-color: #282828;
+    -fx-border-width: 1 0 0 0;
+}
+
+.icon-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #b3b3b3;
+    -fx-font-size: 24px;
+    -fx-cursor: hand;
+}
+
+.icon-button:hover {
+    -fx-background-color: #ffffff;
+        -fx-text-fill: #000000;
+        -fx-scale-x: 1.0;
+        -fx-scale-y: 1.0;
+}
+
+.play-button {
+    -fx-text-fill: #ffffff;
+    -fx-min-width: 40px;
+    -fx-min-height: 40px;
+    -fx-padding: 0 0 0 5;
+}
+
+.play-button:hover, .play-button:pressed {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+}
+
+.custom-progress-bar {
+    -fx-accent: #1E90FF;
+    -fx-control-inner-background: #404040;
+    -fx-min-height: 12px;
+    -fx-pref-height: 12px;
+}
+
+.custom-progress-bar .bar {
+    -fx-background-radius: 6;
+    -fx-background-insets: 0;
+    -fx-padding: 6px;
+}
+
+.custom-progress-bar .track {
+    -fx-background-radius: 6;
+    -fx-background-insets: 0;
+}
+
+.menu-bar {
+    -fx-background-color: #181818;
+}
+
+.menu-bar .label {
+    -fx-text-fill: #b3b3b3;
+}
+
+.menu-bar .menu:hover {
+    -fx-background-color: #282828;
+}
+
+.menu-item {
+    -fx-background-color: #282828;
+}
+
+.menu-item .label {
+    -fx-text-fill: #ffffff;
+}
+
+.menu-item:focused {
+    -fx-background-color: #1E90FF;
+}

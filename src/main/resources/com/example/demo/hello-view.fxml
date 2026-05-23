@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="box" prefHeight="600.0" prefWidth="800.0" styleClass="main-window" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
+
+    <!-- Pasek Menu -->
+    <MenuBar styleClass="menu-bar">
+        <menus>
+            <Menu mnemonicParsing="false" text="Plik">
+                <items>
+                    <MenuItem mnemonicParsing="false" onAction="#handleOpenFolder" text="Otwórz folder..." />
+                    <MenuItem mnemonicParsing="false" text="Zamknij" />
+                </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Sortuj utwory">
+                <items>
+                    <MenuItem mnemonicParsing="false" onAction="#sortAZ" text="Sortuj A-Z" />
+                    <MenuItem mnemonicParsing="false" onAction="#sortZA" text="Sortuj Z-A" />
+                    <MenuItem mnemonicParsing="false" onAction="#shuffle" text="Losowo" />
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+
+    <!-- Główna część z zakładkami (rozciąga się na wolne miejsce) -->
+    <TabPane styleClass="custom-tab-pane" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+        <tabs>
+            <Tab text="Odtwarzacz">
+                <!-- VBox automatycznie wyśrodkowuje elementy -->
+                <VBox alignment="CENTER" spacing="30.0" styleClass="tab-content">
+                    <ImageView fx:id="albumcover" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="album-cover" />
+                    <Label fx:id="songlabel" alignment="CENTER" styleClass="song-title" text="Brak aktualnie odtwarzanego utworu" textAlignment="CENTER" wrapText="true">
+                        <font>
+                            <Font name="System Bold" size="24.0" />
+                        </font>
+                    </Label>
+                </VBox>
+            </Tab>
+            <Tab text="Tekst">
+                <VBox>
+                    <TextArea fx:id="lyricsArea" editable="false" styleClass="lyrics-area" wrapText="true" VBox.vgrow="ALWAYS" />
+                </VBox>
+            </Tab>
+            <Tab text="Playlista">
+                <VBox>
+                    <ListView fx:id="songview" styleClass="song-list" VBox.vgrow="ALWAYS" />
+                </VBox>
+            </Tab>
+        </tabs>
+    </TabPane>
+
+    <!-- Dolny panel sterowania (przyciski, pasek, głośność) -->
+    <VBox spacing="15.0" styleClass="player-controls-container">
+        <padding>
+            <Insets bottom="20.0" left="30.0" right="30.0" top="15.0" />
+        </padding>
+
+        <!-- Pasek postępu na całą szerokość -->
+        <ProgressBar fx:id="songprogress" maxWidth="1.7976931348623157E308" progress="0.0" styleClass="custom-progress-bar" />
+
+        <!-- Dolny pasek: pośrodku przyciski, po prawej głośność -->
+        <BorderPane>
+            <!-- Lewa strona pusta (dla balansu) -->
+            <left>
+                <HBox prefWidth="150.0" BorderPane.alignment="CENTER" />
+            </left>
+
+            <!-- Środek - kontrolki odtwarzacza -->
+            <center>
+                <HBox alignment="CENTER" spacing="20.0" BorderPane.alignment="CENTER">
+                    <Button fx:id="previous" mnemonicParsing="false" onAction="#prevmedia" styleClass="icon-button" text="⏮" />
+                    <Button fx:id="pause" mnemonicParsing="false" onAction="#pausemedia" styleClass="icon-button" text="⏸" />
+                    <Button fx:id="playmedia" mnemonicParsing="false" onAction="#playmedia" styleClass="icon-button, play-button" text="▶" />
+                    <Button fx:id="next" mnemonicParsing="false" onAction="#nextmedia" styleClass="icon-button" text="⏭" />
+                </HBox>
+            </center>
+
+            <!-- Prawa strona - głośność -->
+            <right>
+                <HBox alignment="CENTER_RIGHT" prefWidth="150.0" spacing="10.0" BorderPane.alignment="CENTER">
+                    <Label text="🔊" textFill="#b3b3b3" />
+                    <Slider fx:id="volumeslider" blockIncrement="5.0" styleClass="volume-slider" value="50.0" />
+                </HBox>
+            </right>
+        </BorderPane>
+    </VBox>
+
+</VBox>
