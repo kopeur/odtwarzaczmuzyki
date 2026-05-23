@@ -20,7 +20,6 @@
 
 <VBox fx:id="box" prefHeight="600.0" prefWidth="800.0" styleClass="main-window" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
 
-    <!-- Pasek Menu -->
     <MenuBar styleClass="menu-bar">
         <menus>
             <Menu mnemonicParsing="false" text="Plik">
@@ -38,12 +37,9 @@
             </Menu>
         </menus>
     </MenuBar>
-
-    <!-- Główna część z zakładkami (rozciąga się na wolne miejsce) -->
     <TabPane styleClass="custom-tab-pane" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
         <tabs>
             <Tab text="Odtwarzacz">
-                <!-- VBox automatycznie wyśrodkowuje elementy -->
                 <VBox alignment="CENTER" spacing="30.0" styleClass="tab-content">
                     <ImageView fx:id="albumcover" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="album-cover" />
                     <Label fx:id="songlabel" alignment="CENTER" styleClass="song-title" text="Brak aktualnie odtwarzanego utworu" textAlignment="CENTER" wrapText="true">
@@ -66,23 +62,18 @@
         </tabs>
     </TabPane>
 
-    <!-- Dolny panel sterowania (przyciski, pasek, głośność) -->
     <VBox spacing="15.0" styleClass="player-controls-container">
         <padding>
             <Insets bottom="20.0" left="30.0" right="30.0" top="15.0" />
         </padding>
 
-        <!-- Pasek postępu na całą szerokość -->
         <ProgressBar fx:id="songprogress" maxWidth="1.7976931348623157E308" progress="0.0" styleClass="custom-progress-bar" />
 
-        <!-- Dolny pasek: pośrodku przyciski, po prawej głośność -->
         <BorderPane>
             <!-- Lewa strona pusta (dla balansu) -->
             <left>
                 <HBox prefWidth="150.0" BorderPane.alignment="CENTER" />
             </left>
-
-            <!-- Środek - kontrolki odtwarzacza -->
             <center>
                 <HBox alignment="CENTER" spacing="20.0" BorderPane.alignment="CENTER">
                     <Button fx:id="previous" mnemonicParsing="false" onAction="#prevmedia" styleClass="icon-button" text="⏮" />
@@ -91,8 +82,6 @@
                     <Button fx:id="next" mnemonicParsing="false" onAction="#nextmedia" styleClass="icon-button" text="⏭" />
                 </HBox>
             </center>
-
-            <!-- Prawa strona - głośność -->
             <right>
                 <HBox alignment="CENTER_RIGHT" prefWidth="150.0" spacing="10.0" BorderPane.alignment="CENTER">
                     <Label text="🔊" textFill="#b3b3b3" />
