@@ -36,7 +36,6 @@ public class HelloController implements Initializable {
 
         songprogress.setOnMouseClicked(event -> {
             if (mediaPlayer != null && mediaPlayer.getTotalDuration() != null) {
-                // Pobieramy miejsce kliknięcia myszki i całkowitą szerokość paska
                 double mouseX = event.getX();
                 double width = songprogress.getWidth();
                 double percent = mouseX / width;
@@ -64,15 +63,12 @@ public class HelloController implements Initializable {
                             URL pathUrl = file.toURI().toURL();
                             String baseName = file.getName().replace(".mp3", "");
 
-                            // 1. Wczytywanie tekstu (to już mieliśmy)
                             String lyricsText = "Brak tekstu dla tego utworu.";
                             File textFile = new File(selectedDirectory, baseName + ".txt");
                             if (textFile.exists()) {
                                 lyricsText = java.nio.file.Files.readString(textFile.toPath());
                             }
-
-                            // 2. NOWOŚĆ: Szukamy okładki (plik .jpg lub .png)
-                            javafx.scene.image.Image albumImage = null; // Domyślnie brak okładki
+                            javafx.scene.image.Image albumImage = null; 
                             File coverFileJpg = new File(selectedDirectory, baseName + ".jpg");
                             File coverFilePng = new File(selectedDirectory, baseName + ".png");
 
@@ -89,7 +85,7 @@ public class HelloController implements Initializable {
                                     "Brak albumu",
                                     "Inny",
                                     lyricsText,
-                                    albumImage // <--- Tutaj przekazujemy nasz obrazek
+                                    albumImage 
                             );
 
                             masterSongList.add(newSong);
